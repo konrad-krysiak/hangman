@@ -37,9 +37,7 @@ export const addResult = async (req, res) => {
     );
     res.status(200).json({ success: true });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false });
+    res.status(500).json({ success: false });
   }
 };
 
@@ -48,6 +46,7 @@ export const getPlayers = async (_, res) => {
     const players = await PlayerModel.find();
     res.status(200).json(players);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error while trying to read all players" });
   }
 };

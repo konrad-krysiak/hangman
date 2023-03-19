@@ -1,4 +1,6 @@
-const SERVER_URL = "http://localhost:3000/player/result";
+import { BACKEND_URI } from "../constants/server";
+
+const SERVER_URL = `${BACKEND_URI}/player/result`;
 
 export const addResult = async (name: string, chancesLeft: Number) => {
   const response = await fetch(SERVER_URL, {

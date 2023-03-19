@@ -15,8 +15,16 @@ import { usePlayers } from "../api/players";
 
 export const Leaderboard = () => {
   const { data, isLoading, isError } = usePlayers();
+
+  console.log(isLoading);
+  console.log(data);
+
   if (isError) {
     return <Box>Something went wrong...</Box>;
+  }
+
+  if (isLoading) {
+    return <Box>Loading...</Box>;
   }
 
   return (

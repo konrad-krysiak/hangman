@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
+import { BACKEND_URI } from "../constants/server";
 import { Word } from "../types/Word";
 
-const SERVER_URL = "http://localhost:3000";
-
 export const wordFetcher = () =>
-  fetch(SERVER_URL + "/word/random")
+  fetch(BACKEND_URI + "/word/random")
     .then((response) => response.json())
     .then((data) => data as Promise<Word>);
 

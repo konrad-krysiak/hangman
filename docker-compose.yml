@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  web:
+    image: node:18
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: npm run start
+
+  backend:
+    image: node:18
+    ports:
+      - 3001:3001
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - mongo
+    working_dir: /app
+    command: npm run start
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=mongo-hangman
